@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: 
+  name: safari-pvc
+  namespace: gulzat-project-tiger
+spec:
+  
+  accessModes: 
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+  storageClassName: ""
+  volumeName: gulzat-safari-pv
+  

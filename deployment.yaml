@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: safari
+  namespace: gulzat-project-tiger
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: safari
+  template:
+    metadata:
+      labels:
+        app: safari
+    spec:
+      containers:
+        - name: safari
+          image: httpd:2.4.41-alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: safari-data
+              mountPath: "/tmp/safari-data"
+      volumes:
+        - name: safari-data
+          persistentVolumeClaim:
+            claimName: safari-pvc 
+
+      
+  
+
+  
